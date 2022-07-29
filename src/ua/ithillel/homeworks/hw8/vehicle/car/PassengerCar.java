@@ -1,4 +1,4 @@
-package ua.ithillel.homeworks.hw8;
+package ua.ithillel.homeworks.hw8.carhierarchy;
 
 public class PassengerCar extends Car {
 

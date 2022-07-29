@@ -1,5 +1,7 @@
 package ua.ithillel.homeworks.hw8;
 
+import ua.ithillel.homeworks.hw8.carhierarchy.Car;
+
 public class TaxiDepot implements Depot {
 
     public static Car[] cars = new Car[]{};

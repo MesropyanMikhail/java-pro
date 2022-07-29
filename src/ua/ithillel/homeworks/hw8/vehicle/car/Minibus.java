@@ -1,4 +1,4 @@
-package ua.ithillel.homeworks.hw8;
+package ua.ithillel.homeworks.hw8.carhierarchy;
 
 public class Minibus extends Car {
     int numberOfPassengers;

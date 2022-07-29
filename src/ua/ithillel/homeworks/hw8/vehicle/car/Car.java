@@ -1,4 +1,6 @@
-package ua.ithillel.homeworks.hw8;
+package ua.ithillel.homeworks.hw8.carhierarchy;
+
+import ua.ithillel.homeworks.hw8.utils.Display;
 
 abstract public class Car implements Display {
     protected int maxSpeed;
