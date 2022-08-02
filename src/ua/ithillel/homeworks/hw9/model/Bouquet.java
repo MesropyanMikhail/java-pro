@@ -4,10 +4,10 @@ import ua.ithillel.homeworks.hw9.utils.ArrayUtils;
 
 public class Bouquet {
     private Flower[] flowers = new Flower[]{};
-    private Accessory[] accessories;
+    private Accessory[] accessories = new Accessory[]{};
 
     public Bouquet() {
-        accessories = new Accessory[0];
+
     }
 
     public void addFlower(Flower flower) {
@@ -56,7 +56,6 @@ public class Bouquet {
         for (Accessory accessory : accessories) {
             result += " \t\t\t" + accessory.getTitle() + " price " + accessory.getPrice() + "\n";
         }
-
         return result;
     }
 }

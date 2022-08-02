@@ -49,8 +49,6 @@ public class ConsoleFlowerWorker {
                     case 3:
                         printBouquets();
                         break;
-                    case 0:
-                        break;
                     default:
                         System.out.println("Error. There is no such menu item.");
                         break;
@@ -93,8 +91,6 @@ public class ConsoleFlowerWorker {
                         break;
                     case 5:
                         addAccessory(choosedBouquet);
-                        break;
-                    case 0:
                         break;
                     default:
                         System.out.println("Error. There is no such menu item.");
@@ -148,8 +144,6 @@ public class ConsoleFlowerWorker {
                     case 2:
                         addAccessory(bouquet);
                         break;
-                    case 0:
-                        break;
                     default:
                         System.out.println("Error. There is no such menu item.");
                         break;
@@ -175,8 +169,6 @@ public class ConsoleFlowerWorker {
                 switch (typing) {
                     case 1:
                         createFlower(currentBouquet);
-                        break;
-                    case 0:
                         break;
                     default:
                         System.out.println("Error. There is no such menu item.");
@@ -215,8 +207,6 @@ public class ConsoleFlowerWorker {
                 switch (typing) {
                     case 1:
                         createAccessory(currentBouquet);
-                        break;
-                    case 0:
                         break;
                     default:
                         System.out.println("Error. There is no such menu item.");
