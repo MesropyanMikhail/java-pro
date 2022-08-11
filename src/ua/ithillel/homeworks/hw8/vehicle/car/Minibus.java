@@ -1,4 +1,4 @@
-package ua.ithillel.homeworks.hw8.carhierarchy;
+package ua.ithillel.homeworks.hw8.vehicle.car;
 
 public class Minibus extends Car {
     int numberOfPassengers;
@@ -9,17 +9,17 @@ public class Minibus extends Car {
     }
 
     @Override
-    int getMaxSpeed() {
+    public int getMaxSpeed() {
         return super.maxSpeed;
     }
 
     @Override
-    int getFuelConsumption() {
+    public int getFuelConsumption() {
         return super.fuelConsumption;
     }
 
     @Override
-    double getPrice() {
+    public double getPrice() {
         return super.price;
     }
 

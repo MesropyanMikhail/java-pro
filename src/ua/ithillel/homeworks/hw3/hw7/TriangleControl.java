@@ -1,4 +1,4 @@
-package ua.ithillel.homeworks.hw7;
+package ua.ithillel.homeworks.hw3.hw7;
 
 import java.util.Arrays;
 

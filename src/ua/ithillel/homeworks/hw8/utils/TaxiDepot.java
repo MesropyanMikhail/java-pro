@@ -1,6 +1,6 @@
-package ua.ithillel.homeworks.hw8;
+package ua.ithillel.homeworks.hw8.utils;
 
-import ua.ithillel.homeworks.hw8.carhierarchy.Car;
+import ua.ithillel.homeworks.hw8.vehicle.car.Car;
 
 public class TaxiDepot implements Depot {
 

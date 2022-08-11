@@ -1,15 +1,16 @@
-package ua.ithillel.homeworks.hw10.control;
+package ua.ithillel.homeworks.hw10.model;
 
+import ua.ithillel.homeworks.hw10.control.PrimeNumberMonitor;
 import ua.ithillel.homeworks.hw10.utils.ArrayUtils;
 
-public class PrimeNumberThreads implements Runnable {
+public class PrimeNumberThread implements Runnable {
     Thread thread;
     PrimeNumberMonitor primeNumberMonitor;
     int[] primeNumbers = new int[]{};
     int startRange;
     int endRange;
 
-    public PrimeNumberThreads(PrimeNumberMonitor primeNumberMonitor, int startRange, int endRange) {
+    public PrimeNumberThread(PrimeNumberMonitor primeNumberMonitor, int startRange, int endRange) {
         this.primeNumberMonitor = primeNumberMonitor;
         this.startRange = startRange;
         this.endRange = endRange;
@@ -33,9 +34,8 @@ public class PrimeNumberThreads implements Runnable {
 
     private void findPrimeNumberInRange(int startRange, int endRange) {
         int[] numbers;
-        int[] temp = new int[]{};
 
-        boolean primeNumber = true;
+        boolean primeNumber;
         int actualNumber;
 
         numbers = CreateArrayBasedOnRange(startRange, endRange);

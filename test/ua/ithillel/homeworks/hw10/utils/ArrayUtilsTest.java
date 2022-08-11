@@ -8,11 +8,12 @@ class ArrayUtilsTest {
 
     @Test
     void extendsArrayWithAddNewItem() {
-        int[] expectedArray = new int[]{1,2,3,4,5,6,7};
+        int[] expectedArray = new int[]{1, 2, 3, 4, 5, 6, 7};
 
-        int[] acctualArray = new int[]{1,2,3,4,5,6};
+        int[] acctualArray = new int[]{1, 2, 3, 4, 5, 6};
         acctualArray = ArrayUtils.extendsArrayWithAddNewItem(7, acctualArray);
         assertArrayEquals(expectedArray, acctualArray);
 
     }
+
 }

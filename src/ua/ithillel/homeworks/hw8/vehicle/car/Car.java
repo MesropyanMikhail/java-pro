@@ -1,4 +1,4 @@
-package ua.ithillel.homeworks.hw8.carhierarchy;
+package ua.ithillel.homeworks.hw8.vehicle.car;
 
 import ua.ithillel.homeworks.hw8.utils.Display;
 
@@ -13,10 +13,10 @@ abstract public class Car implements Display {
         this.price = price;
     }
 
-    abstract int getMaxSpeed();
+    public abstract int getMaxSpeed();
 
-    abstract int getFuelConsumption();
+    public abstract int getFuelConsumption();
 
-    abstract double getPrice();
+    public abstract double getPrice();
 }
 

@@ -1,6 +1,8 @@
 package ua.ithillel.homeworks.hw8;
 
 import org.junit.jupiter.api.Test;
+import ua.ithillel.homeworks.hw8.vehicle.car.*;
+import ua.ithillel.homeworks.hw8.utils.TaxiDepot;
 
 import static org.junit.jupiter.api.Assertions.*;
 

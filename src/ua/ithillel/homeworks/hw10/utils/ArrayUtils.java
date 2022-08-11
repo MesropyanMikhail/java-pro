@@ -1,6 +1,7 @@
 package ua.ithillel.homeworks.hw10.utils;
 
 public class ArrayUtils {
+
     public static int[] extendsArrayWithAddNewItem(int addItem, int[] items) {
         int[] temp;
         int arraySize = items.length;
@@ -13,4 +14,5 @@ public class ArrayUtils {
 
         return temp;
     }
+
 }
