@@ -19,6 +19,11 @@ public class SinglyLinkedList<T> {
     }
 
     public void swapItems(int firstIndex, int secondIndex) {
+        if ((firstIndex > length) || (secondIndex > length) || (firstIndex < 0) || (secondIndex < 0)) {
+            System.out.println("Index error.");
+            return;
+        }
+
         T[] firstResult = findElementsByIndex(firstIndex);
         T[] secondResult = findElementsByIndex(secondIndex);
 
@@ -31,14 +36,27 @@ public class SinglyLinkedList<T> {
         Node<T> previousItemSecondIndex = (Node) secondResult[0];
         Node<T> currentItemSecondIndex = (Node) secondResult[1];
 
-        currentItemSecondIndex.setNext(currentItemFirstIndex.getNext());
-        if (previousItemFirstIndex != null) {
-            previousItemFirstIndex.setNext(currentItemSecondIndex);
+
+        if (secondIndex - firstIndex == 1) {
+            currentItemSecondIndex.setNext(currentItemFirstIndex);
+            if (previousItemFirstIndex != null) {
+                previousItemFirstIndex.setNext(currentItemSecondIndex);
+            } else {
+                firstNode = currentItemSecondIndex;
+            }
+            previousItemSecondIndex.setNext(currentItemFirstIndex);
+            currentItemFirstIndex.setNext(currentItemSecondTempNext);
+
         } else {
-            firstNode = currentItemSecondIndex;
+            currentItemSecondIndex.setNext(currentItemFirstIndex.getNext());
+            if (previousItemFirstIndex != null) {
+                previousItemFirstIndex.setNext(currentItemSecondIndex);
+            } else {
+                firstNode = currentItemSecondIndex;
+            }
+            previousItemSecondIndex.setNext(currentItemFirstIndex);
+            currentItemFirstIndex.setNext(currentItemSecondTempNext);
         }
-        previousItemSecondIndex.setNext(currentItemFirstIndex);
-        currentItemFirstIndex.setNext(currentItemSecondTempNext);
     }
 
     private T[] findElementsByIndex(int index) {
@@ -169,6 +187,9 @@ public class SinglyLinkedList<T> {
         previousItem.setNext(currentItem.getNext());
         currentItem = null;
         length--;
+        if (length == 0) {
+            firstNode = null;
+        }
     }
 
     public int getLength() {

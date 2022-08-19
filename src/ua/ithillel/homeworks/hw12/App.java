@@ -12,7 +12,11 @@ public class App {
         list.addFirstItem(0);
         list.addLastItem(9);
         System.out.println(list.toString());
-        list.swapItems(1, 5);
+        list.swapItems(0, 1);
+        System.out.println(list.toString());
+        list.swapItems(0, 1);
+        System.out.println(list.toString());
+        list.swapItems(0, 9);
         System.out.println(list.toString());
         list.deleteFirst();
         System.out.println(list.toString());
