@@ -2,7 +2,7 @@ package ua.ithillel.homeworks.hw12.model;
 
 public class Node<T> {
     T value;
-    Node <T> next;
+    Node<T> next;
 
     public Node(T value) {
         this.value = value;

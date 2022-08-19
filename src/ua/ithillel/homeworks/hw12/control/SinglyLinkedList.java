@@ -14,7 +14,7 @@ public class SinglyLinkedList<T> {
 
     public SinglyLinkedList(T[] items) {
         for (T item : items) {
-            addFirstItem(item);
+            addLastItem(item);
         }
     }
 
@@ -22,22 +22,23 @@ public class SinglyLinkedList<T> {
         T[] firstResult = findElementsByIndex(firstIndex);
         T[] secondResult = findElementsByIndex(secondIndex);
 
-        Node<T> currentItemTemp = (Node) firstResult[1];
-
         Node<T> previousItemFirstIndex = (Node) firstResult[0];
         Node<T> currentItemFirstIndex = (Node) firstResult[1];
 
+        Node<T> currentItemFirstTempNext = ((Node) firstResult[1]).getNext();
         Node<T> currentItemSecondTempNext = ((Node) secondResult[1]).getNext();
 
         Node<T> previousItemSecondIndex = (Node) secondResult[0];
         Node<T> currentItemSecondIndex = (Node) secondResult[1];
 
-        previousItemFirstIndex.setNext(currentItemSecondIndex);
-        currentItemSecondIndex.setNext(currentItemTemp.getNext());
-
+        currentItemSecondIndex.setNext(currentItemFirstIndex.getNext());
+        if (previousItemFirstIndex != null) {
+            previousItemFirstIndex.setNext(currentItemSecondIndex);
+        } else {
+            firstNode = currentItemSecondIndex;
+        }
         previousItemSecondIndex.setNext(currentItemFirstIndex);
         currentItemFirstIndex.setNext(currentItemSecondTempNext);
-
     }
 
     private T[] findElementsByIndex(int index) {
@@ -64,8 +65,9 @@ public class SinglyLinkedList<T> {
     }
 
     public void addLastItem(T value) {
-        if (firstNode==null) {
+        if (firstNode == null) {
             addFirstItem(value);
+            return;
         }
         Node<T> lastItem = firstNode;
         while (lastItem.getNext() != null) {
