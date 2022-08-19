@@ -8,7 +8,6 @@ import ua.ithillel.homeworks.hw11.utils.TaxiDepot;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) {
