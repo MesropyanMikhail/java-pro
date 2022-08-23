@@ -21,14 +21,17 @@ class SinglyLinkedListTest {
         Object[] valuesBefore;
         Object[] valuesAfter;
         valuesBefore = list.itemsOfList();
-        Object temp =  valuesBefore[3];
+        Object temp = valuesBefore[3];
         valuesBefore[3] = valuesBefore[2];
-        valuesBefore[3] = temp;
+        valuesBefore[2] = temp;
         list.swapItems(2, 3);
         valuesAfter = list.itemsOfList();
+        assertArrayEquals(valuesBefore, valuesAfter);
 
-
-
+        Object[] values;
+        values = list.valuesOfList();
+        Integer[] expected = new Integer[]{5, 4, 2, 3, 1};
+        assertArrayEquals(expected, values);
     }
 
     @Test
@@ -42,8 +45,17 @@ class SinglyLinkedListTest {
         list.addFirstItem(5);
         Object[] values;
         values = list.valuesOfList();
-        Integer[] expected = new Integer[]{5,4,3,2,1};
+        Integer[] expected = new Integer[]{5, 4, 3, 2, 1};
         assertArrayEquals(expected, values);
+
+        Object[] valuesBefore;
+        Object[] valuesAfter;
+        valuesBefore = list.itemsOfList();
+        list.addFirstItem(6);
+        valuesAfter = list.itemsOfList();
+        for (int i = 0; i < list.getLength() - 1; i++) {
+            assertEquals(valuesBefore[i], valuesAfter[i + 1]);
+        }
     }
 
     @Test
@@ -57,8 +69,17 @@ class SinglyLinkedListTest {
         list.addLastItem(1);
         Object[] values;
         values = list.valuesOfList();
-        Integer[] expected = new Integer[]{5,4,3,2,1};
+        Integer[] expected = new Integer[]{5, 4, 3, 2, 1};
         assertArrayEquals(expected, values);
+
+        Object[] valuesBefore;
+        Object[] valuesAfter;
+        valuesBefore = list.itemsOfList();
+        list.addLastItem(6);
+        valuesAfter = list.itemsOfList();
+        for (int i = 0; i < list.getLength() - 2; i++) {
+            assertEquals(valuesBefore[i], valuesAfter[i]);
+        }
     }
 
     @Test
@@ -73,8 +94,22 @@ class SinglyLinkedListTest {
         list.addItemByNindex(10, 3);
         Object[] values;
         values = list.valuesOfList();
-        Integer[] expected = new Integer[]{5,4,3,10,2,1};
+        Integer[] expected = new Integer[]{5, 4, 3, 10, 2, 1};
         assertArrayEquals(expected, values);
+
+        Object[] valuesBefore;
+        Object[] valuesAfter;
+        int index = 4;
+        valuesBefore = list.itemsOfList();
+        list.addItemByNindex(2, index);
+        valuesAfter = list.itemsOfList();
+        for (int i = 0; i < list.getLength() - 1; i++) {
+            if (i >= index) {
+                assertEquals(valuesBefore[i], valuesAfter[i + 1]);
+            } else {
+                assertEquals(valuesBefore[i], valuesAfter[i]);
+            }
+        }
     }
 
     @Test
@@ -89,8 +124,17 @@ class SinglyLinkedListTest {
         list.deleteFirst();
         Object[] values;
         values = list.valuesOfList();
-        Integer[] expected = new Integer[]{4,3,2,1};
+        Integer[] expected = new Integer[]{4, 3, 2, 1};
         assertArrayEquals(expected, values);
+
+        Object[] valuesBefore;
+        Object[] valuesAfter;
+        valuesBefore = list.itemsOfList();
+        list.deleteFirst();
+        valuesAfter = list.itemsOfList();
+        for (int i = 0; i < list.getLength() - 1; i++) {
+            assertEquals(valuesBefore[i + 1], valuesAfter[i]);
+        }
     }
 
     @Test
@@ -105,8 +149,17 @@ class SinglyLinkedListTest {
         list.deleteLast();
         Object[] values;
         values = list.valuesOfList();
-        Integer[] expected = new Integer[]{5,4,3,2};
+        Integer[] expected = new Integer[]{5, 4, 3, 2};
         assertArrayEquals(expected, values);
+
+        Object[] valuesBefore;
+        Object[] valuesAfter;
+        valuesBefore = list.itemsOfList();
+        list.deleteFirst();
+        valuesAfter = list.itemsOfList();
+        for (int i = 0; i < list.getLength() - 1; i++) {
+            assertEquals(valuesBefore[i + 1], valuesAfter[i]);
+        }
     }
 
     @Test
@@ -121,8 +174,22 @@ class SinglyLinkedListTest {
         list.deleteByIndex(3);
         Object[] values;
         values = list.valuesOfList();
-        Integer[] expected = new Integer[]{5,4,3,1};
+        Integer[] expected = new Integer[]{5, 4, 3, 1};
         assertArrayEquals(expected, values);
+
+        Object[] valuesBefore;
+        Object[] valuesAfter;
+        int index = 2;
+        valuesBefore = list.itemsOfList();
+        list.deleteByIndex(index);
+        valuesAfter = list.itemsOfList();
+        for (int i = 0; i < list.getLength() - 1; i++) {
+            if (i >= index) {
+                assertEquals(valuesBefore[i + 1], valuesAfter[i]);
+            } else {
+                assertEquals(valuesBefore[i], valuesAfter[i]);
+            }
+        }
     }
 
     @Test

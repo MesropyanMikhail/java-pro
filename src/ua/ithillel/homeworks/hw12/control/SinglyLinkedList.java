@@ -213,6 +213,7 @@ public class SinglyLinkedList<T> {
         }
         return result;
     }
+
     public Node<T>[] itemsOfList() {
         Node<T>[] result = new Node[getLength()];
         Node<T> temp = firstNode;
