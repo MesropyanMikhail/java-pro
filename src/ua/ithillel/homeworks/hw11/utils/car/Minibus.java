@@ -1,12 +1,11 @@
-package ua.ithillel.homeworks.hw11.car;
+package ua.ithillel.homeworks.hw11.utils.car;
 
-public class Truck extends Car {
+public class Minibus extends Car {
+    int numberOfPassengers;
 
-    int loadCapacity;
-
-    public Truck(int maxSpeed, int fuelConsumption, double price, int loadCapacity) {
+    public Minibus(int maxSpeed, int fuelConsumption, double price, int numberOfPassengers) {
         super(maxSpeed, fuelConsumption, price);
-        this.loadCapacity = loadCapacity;
+        this.numberOfPassengers = numberOfPassengers;
     }
 
     @Override
@@ -24,17 +23,17 @@ public class Truck extends Car {
         return super.price;
     }
 
-    public int getLoadCapacity() {
-        return loadCapacity;
+    public int getNumberOfPassengers() {
+        return numberOfPassengers;
     }
 
     @Override
     public String toString() {
-        return "Truck{" +
+        return "Minibus{" +
                 "maxSpeed=" + getMaxSpeed() +
                 ", fuelConsumption=" + getFuelConsumption() +
                 ", price=" + getPrice() +
-                ", loadCapacity=" + loadCapacity +
+                ", numberOfPassengers=" + numberOfPassengers +
                 '}';
     }
 }

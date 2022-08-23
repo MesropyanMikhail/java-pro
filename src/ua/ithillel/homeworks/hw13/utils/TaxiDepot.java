@@ -1,6 +1,10 @@
-package ua.ithillel.homeworks.hw11.utils;
+package ua.ithillel.homeworks.hw13.utils;
 
-import ua.ithillel.homeworks.hw11.utils.car.Car;
+import ua.ithillel.homeworks.hw13.utils.car.Car;
+
+
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class TaxiDepot implements Depot {
 
@@ -30,6 +34,40 @@ public class TaxiDepot implements Depot {
                 }
             }
         }
+        return cars;
+    }
+
+    public Car[] sortCarsInterfaceImplementation(Car[] cars) {
+        Comparator<Car> comparator = new Comparator<Car>() {
+            @Override
+            public int compare(Car car1, Car car2) {
+                int car1FuelConsumption = car1.getFuelConsumption();
+                int car2FuelConsumption = car2.getFuelConsumption();
+
+                return (car1.getFuelConsumption() > car2FuelConsumption) ? -1 : (car1FuelConsumption == car2FuelConsumption) ? 0 : 1;
+            }
+        };
+        Arrays.sort(cars, comparator);
+        return cars;
+    }
+
+    public Car[] sortCarsLambdaExpression(Car[] cars) {
+        Comparator<Car> comparator;
+        comparator = (x, y)-> {
+            if (x.getFuelConsumption() > y.getFuelConsumption()) {
+                return 1;
+            }else if (x.getFuelConsumption() == y.getFuelConsumption()) {
+                return 0;
+            }else {
+                return -1;
+            }
+        };
+        Arrays.sort(cars, comparator);
+        return cars;
+    }
+
+    public Car[] sortCarsMethodReference(Car[] cars) {
+        Arrays.sort(cars, CarUtils::compare);
         return cars;
     }
 

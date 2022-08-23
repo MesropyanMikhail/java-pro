@@ -1,12 +1,12 @@
-package ua.ithillel.homeworks.hw11.car;
+package ua.ithillel.homeworks.hw13.utils.car;
 
-public class PassengerCar extends Car {
+public class Truck extends Car {
 
-    boolean airСonditioner;
+    int loadCapacity;
 
-    public PassengerCar(int maxSpeed, int fuelConsumption, double price, boolean airСonditioner) {
+    public Truck(int maxSpeed, int fuelConsumption, double price, int loadCapacity) {
         super(maxSpeed, fuelConsumption, price);
-        this.airСonditioner = airСonditioner;
+        this.loadCapacity = loadCapacity;
     }
 
     @Override
@@ -24,17 +24,17 @@ public class PassengerCar extends Car {
         return super.price;
     }
 
-    public boolean isAirСonditioner() {
-        return airСonditioner;
+    public int getLoadCapacity() {
+        return loadCapacity;
     }
 
     @Override
     public String toString() {
-        return "PassengerCar{" +
+        return "Truck{" +
                 "maxSpeed=" + getMaxSpeed() +
                 ", fuelConsumption=" + getFuelConsumption() +
                 ", price=" + getPrice() +
-                ", airСonditioner=" + airСonditioner +
+                ", loadCapacity=" + loadCapacity +
                 '}';
     }
 }

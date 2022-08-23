@@ -1,32 +1,39 @@
-package ua.ithillel.homeworks.hw11;
+package ua.ithillel.homeworks.hw13;
 
-import ua.ithillel.homeworks.hw11.utils.car.Car;
-import ua.ithillel.homeworks.hw11.utils.car.Minibus;
-import ua.ithillel.homeworks.hw11.utils.car.PassengerCar;
-import ua.ithillel.homeworks.hw11.utils.car.Truck;
-import ua.ithillel.homeworks.hw11.utils.TaxiDepot;
+import ua.ithillel.homeworks.hw13.utils.TaxiDepot;
+import ua.ithillel.homeworks.hw13.utils.car.Car;
+import ua.ithillel.homeworks.hw13.utils.car.Minibus;
+import ua.ithillel.homeworks.hw13.utils.car.PassengerCar;
+import ua.ithillel.homeworks.hw13.utils.car.Truck;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 public class App {
     public static void main(String[] args) {
         TaxiDepot taxiDepot = new TaxiDepot();
 
-        //loadFile("C:\\Lerning\\Hillel\\java-pro-mesopyan\\src\\ua\\ithillel\\homeworks\\hw11\\carin.csv", TaxiDepot.cars, taxiDepot);
-        loadFile(args[0], TaxiDepot.cars, taxiDepot);
+        loadFile("C:\\Lerning\\Hillel\\java-pro-mesopyan\\src\\ua\\ithillel\\homeworks\\hw13\\carin.csv", TaxiDepot.cars, taxiDepot);
+        //loadFile(args[0], TaxiDepot.cars, taxiDepot);
 
         System.out.println("До сортировки ");
         for (Car car : TaxiDepot.cars) {
             car.display();
         }
         System.out.println("\nПосле сортировки ");
-        TaxiDepot.cars = taxiDepot.sortCars(TaxiDepot.cars);
+        //TaxiDepot.cars = taxiDepot.sortCars(TaxiDepot.cars);
+        TaxiDepot.cars = taxiDepot.sortCarsLambdaExpression(TaxiDepot.cars);
+        TaxiDepot.cars = taxiDepot.sortCarsInterfaceImplementation(TaxiDepot.cars);
+       // TaxiDepot.cars = taxiDepot.sortCarsMethodReference(TaxiDepot.cars);
+
         for (Car car : TaxiDepot.cars) {
             car.display();
         }
-        //saveFile("C:\\Lerning\\Hillel\\java-pro-mesopyan\\src\\ua\\ithillel\\homeworks\\hw11\\carout.csv", TaxiDepot.cars);
-        saveFile(args[1], TaxiDepot.cars);
+        saveFile("C:\\Lerning\\Hillel\\java-pro-mesopyan\\src\\ua\\ithillel\\homeworks\\hw13\\carout.csv", TaxiDepot.cars);
+        //saveFile(args[1], TaxiDepot.cars);
     }
 
     private static void loadFile(String filePath, Car[] cars, TaxiDepot taxiDepot) {

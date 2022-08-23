@@ -1,6 +1,6 @@
-package ua.ithillel.homeworks.hw11.car;
+package ua.ithillel.homeworks.hw13.utils.car;
 
-import ua.ithillel.homeworks.hw11.utils.Display;
+import ua.ithillel.homeworks.hw13.utils.Display;
 
 abstract public class Car implements Display {
     protected int maxSpeed;

@@ -203,6 +203,27 @@ public class SinglyLinkedList<T> {
         return false;
     }
 
+    public T[] valuesOfList() {
+        T[] result = (T[]) new Object[getLength()];
+        Node<T> temp = firstNode;
+
+        for (int i = 0; i < length; i++) {
+            result[i] = temp.getValue();
+            temp = temp.getNext();
+        }
+        return result;
+    }
+    public Node<T>[] itemsOfList() {
+        Node<T>[] result = new Node[getLength()];
+        Node<T> temp = firstNode;
+
+        for (int i = 0; i < length; i++) {
+            result[i] = temp;
+            temp = temp.getNext();
+        }
+        return result;
+    }
+
     @Override
     public String toString() {
         Node<T> temp = firstNode;

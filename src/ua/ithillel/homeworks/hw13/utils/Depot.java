@@ -1,6 +1,6 @@
-package ua.ithillel.homeworks.hw11.utils;
+package ua.ithillel.homeworks.hw13.utils;
 
-import ua.ithillel.homeworks.hw11.utils.car.Car;
+import ua.ithillel.homeworks.hw13.utils.car.Car;
 
 public interface Depot {
 
