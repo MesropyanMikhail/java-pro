@@ -63,24 +63,14 @@ public class TaxiDepot implements Depot {
         cars.sort(CarUtils::compare);
     }
 
-    public Car[] findSpeedCars(int startSpeedRange, int endSpeedRange) {
-        Car[] carRelevantSpeed = new Car[]{};
+    public ArrayList<Car> findSpeedCars(int startSpeedRange, int endSpeedRange) {
+        ArrayList<Car> carRelevantSpeed = new ArrayList<Car>();
         for (Car car : cars) {
             if ((car.getMaxSpeed() > startSpeedRange) && ((car.getMaxSpeed() < endSpeedRange))) {
-                carRelevantSpeed = arrayCopy(carRelevantSpeed);
-                carRelevantSpeed[carRelevantSpeed.length - 1] = car;
+                carRelevantSpeed.add(car);
             }
         }
         return carRelevantSpeed;
-    }
-
-    public static Car[] arrayCopy(Car[] cars) {
-        int arraySize = cars.length;
-        Car[] temp = new Car[arraySize + 1];
-        for (int i = 0; i < arraySize; i++) {
-            temp[i] = cars[i];
-        }
-        return temp;
     }
 
     public ArrayList<Car> getCars() {

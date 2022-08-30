@@ -29,6 +29,11 @@ public class App {
         ImportExportData.saveFile("C:\\Lerning\\Hillel\\java-pro-mesopyan\\src\\ua\\ithillel\\homeworks\\hw13\\carout.csv", taxiDepot);
         //ImportExportData.saveFile(args[1], TaxiDepot.cars);
 
+        System.out.println();
+        System.out.println("Find speed cars 79-120");
+        for (Car car:taxiDepot.findSpeedCars(79, 120)) {
+            car.display();
+        }
     }
 
 }
