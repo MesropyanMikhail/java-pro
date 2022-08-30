@@ -1,6 +1,7 @@
 package ua.ithillel.homeworks.hw14.task2.control;
 
 import ua.ithillel.homeworks.hw14.task2.model.Node;
+
 import java.util.Iterator;
 
 public class SinglyLinkedListIterator<T> implements Iterator<T> {

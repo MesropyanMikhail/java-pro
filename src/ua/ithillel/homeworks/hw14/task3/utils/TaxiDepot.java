@@ -8,7 +8,7 @@ import java.util.Comparator;
 
 public class TaxiDepot implements Depot {
 
-    private ArrayList<Car> cars =  new ArrayList<>();
+    private ArrayList<Car> cars = new ArrayList<>();
 
     public void addCar(Car car) {
         cars.add(car);

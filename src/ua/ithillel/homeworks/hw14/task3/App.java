@@ -9,8 +9,8 @@ public class App {
     public static void main(String[] args) {
 
         TaxiDepot taxiDepot = new TaxiDepot();
-        ImportExportData.loadFile("C:\\Lerning\\Hillel\\java-pro-mesopyan\\src\\ua\\ithillel\\homeworks\\hw13\\carin.csv", taxiDepot);
-        //ImportExportData.loadFile(args[0], TaxiDepot.cars, taxiDepot);
+        //ImportExportData.loadFile("C:\\Lerning\\Hillel\\java-pro-mesopyan\\src\\ua\\ithillel\\homeworks\\hw13\\carin.csv", taxiDepot);
+        ImportExportData.loadFile(args[0], taxiDepot);
 
         System.out.println("До сортировки ");
         for (Car car : taxiDepot.getCars()) {
@@ -26,12 +26,12 @@ public class App {
         for (Car car : taxiDepot.getCars()) {
             car.display();
         }
-        ImportExportData.saveFile("C:\\Lerning\\Hillel\\java-pro-mesopyan\\src\\ua\\ithillel\\homeworks\\hw13\\carout.csv", taxiDepot);
-        //ImportExportData.saveFile(args[1], TaxiDepot.cars);
+        //ImportExportData.saveFile("C:\\Lerning\\Hillel\\java-pro-mesopyan\\src\\ua\\ithillel\\homeworks\\hw13\\carout.csv", taxiDepot);
+        ImportExportData.saveFile(args[1], taxiDepot);
 
         System.out.println();
         System.out.println("Find speed cars 79-120");
-        for (Car car:taxiDepot.findSpeedCars(79, 120)) {
+        for (Car car : taxiDepot.findSpeedCars(79, 120)) {
             car.display();
         }
     }
