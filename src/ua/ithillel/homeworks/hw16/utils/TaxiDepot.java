@@ -6,11 +6,9 @@ import ua.ithillel.homeworks.hw16.utils.car.Minibus;
 import ua.ithillel.homeworks.hw16.utils.car.PassengerCar;
 import ua.ithillel.homeworks.hw16.utils.car.Truck;
 
-import javax.swing.text.html.Option;
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 public class TaxiDepot implements Depot {
 
@@ -21,24 +19,12 @@ public class TaxiDepot implements Depot {
     }
 
     public double fleetCost() {
-
-        Stream<Car> carStream = cars.stream();
-        Optional<Double> fleetCost = carStream.map(car -> car.getPrice()).reduce((a, b) -> a + b);
-        /*double fleetCost = 0;
-        for (Car car : cars) {
-            fleetCost += car.getPrice();
-        }*/
+        Optional<Double> fleetCost = cars.stream().map(c -> c.getPrice()).reduce((a, b) -> a + b);
         return (fleetCost.isPresent()) ? fleetCost.get() : 0;
     }
 
     public void sortCars() {
         cars = (ArrayList<Car>) cars.stream().sorted(CarUtils::compare).collect(Collectors.toList());
-       /*cars.sort(new Comparator<Car>() {
-            @Override
-            public int compare(Car o1, Car o2) {
-                return o1.getFuelConsumption() - o2.getFuelConsumption();
-            }
-        });*/
     }
 
     public void sortCarsInterfaceImplementation() {
@@ -74,14 +60,7 @@ public class TaxiDepot implements Depot {
     }
 
     public ArrayList<Car> findSpeedCars(int startSpeedRange, int endSpeedRange) {
-        ArrayList<Car> carRelevantSpeed = (ArrayList<Car>) cars.stream().filter(car -> car.getMaxSpeed() > startSpeedRange && car.getMaxSpeed() < endSpeedRange).collect(Collectors.toList());
-        /*ArrayList<Car> carRelevantSpeed = new ArrayList<Car>();
-        for (Car car : cars) {
-            if ((car.getMaxSpeed() > startSpeedRange) && ((car.getMaxSpeed() < endSpeedRange))) {
-                carRelevantSpeed.add(car);
-            }
-        }*/
-        return carRelevantSpeed;
+        return (ArrayList<Car>) cars.stream().filter(c -> c.getMaxSpeed() > startSpeedRange && c.getMaxSpeed() < endSpeedRange).collect(Collectors.toList());
     }
 
     public ArrayList<Car> getCars() {
@@ -90,10 +69,15 @@ public class TaxiDepot implements Depot {
 
     @Override
     public String toString() {
-
-        String result = cars.stream().map(car -> "maxSpeed=" + car.getMaxSpeed() + ", fuelConsumption=" + car.getFuelConsumption() +
-                ", price=" +  car.getPrice() + ((car instanceof Minibus)?((Minibus) car).getNumberOfPassengers():(car instanceof PassengerCar)?((PassengerCar) car).isAirСonditioner():(car instanceof Truck)?((Truck) car).getLoadCapacity():" ")).collect(Collectors.joining("\n"));
-        return result;
-
+        return cars.stream().map(c -> {
+            String result;
+            if (c instanceof Minibus) {
+                return "Minibus{" + "maxSpeed=" + c.getMaxSpeed() + ", fuelConsumption=" + c.getFuelConsumption() + ", price=" + c.getPrice() + ", numberOfPassengers=" + ((Minibus) c).getNumberOfPassengers() + '}';
+            } else if (c instanceof PassengerCar) {
+                return "PassengerCar{" + "maxSpeed=" + c.getMaxSpeed() + ", fuelConsumption=" + c.getFuelConsumption() + ", price=" + c.getPrice() + ", airСonditioner=" + ((PassengerCar) c).isAirСonditioner() + '}';
+            } else {
+                return "Truck{" + "maxSpeed=" + c.getMaxSpeed() + ", fuelConsumption=" + c.getFuelConsumption() + ", price=" + c.getPrice() + ", loadCapacity=" + ((Truck) c).getLoadCapacity() + '}';
+            }
+        }).collect(Collectors.joining("\n"));
     }
 }
